@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
+
+<!--  Autowiring byName et byType  -->
+    <!--
+        Quand tu utilises autowire byName
+        Spring passe par tes classes, regarde tes attributs et regarde si j'ai pas une référence à un objet du même nom
+        Dans InvoiceServicePrefix, spring va détecter l'attribut repository, et voir que j'ai un id repository qui fait
+        référence à l'instance de l'objet
+        InvoiceRepositoryMemory, il va injecter la dépendance dans l'attribut repository directement
+    -->
+    <bean id="service" class="com.mycompany.invoice.service.InvoiceServicePrefix">
+        <property name="lastNumber" value="112" />
+        <property name="prefix" value="NUM_" />
+        <property name="file" value="C\\temp\\monfichier.csv" />
+
+<!--        <property name="repository" ref="repository" />-->
+    </bean>
+
+    <bean class="com.mycompany.invoice.controller.InvoiceControllerWeb">
+<!--        <property name="service" ref="service" />-->
+    </bean>
+
+    <bean id="repository" class="com.mycompany.invoice.repository.InvoiceRepositoryMemory"/>
+    
+
+</beans>
