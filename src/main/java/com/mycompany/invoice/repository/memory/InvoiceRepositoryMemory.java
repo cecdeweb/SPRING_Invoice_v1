@@ -1,11 +1,14 @@
-package com.mycompany.invoice.repository;
+package com.mycompany.invoice.repository.memory;
 
 import com.mycompany.invoice.entity.Invoice;
+import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvoiceRepositoryMemory implements InvoiceRepositoryInterface{
+@Repository
+public class InvoiceRepositoryMemory implements InvoiceRepositoryInterface {
 
     public static List<Invoice> invoices = new ArrayList<>();
 

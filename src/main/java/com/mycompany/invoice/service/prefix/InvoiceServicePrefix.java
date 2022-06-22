@@ -1,20 +1,28 @@
-package com.mycompany.invoice.service;
+package com.mycompany.invoice.service.prefix;
 
 import com.mycompany.invoice.entity.Invoice;
 import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
+import com.mycompany.invoice.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 
+@Service
 public class InvoiceServicePrefix implements InvoiceServiceInterface {
 
     // j'aimerais biensetter des valeurs à ces deux attributs
     // en passant par la config de mon applicationContext-v2.xml
-    private static long lastNumber = 0L;
+    @Value("${invoice.lastNumber}")
+    private long lastNumber = 0L;
+    @Value("${invoice.prefix}")
     private String prefix;
-
+    @Value("${invoice.file}")
     private File file;
 
 
+    @Autowired
     private InvoiceRepositoryInterface repository;
 
     public void createInvoice(Invoice invoice) {
@@ -32,12 +40,12 @@ public class InvoiceServicePrefix implements InvoiceServiceInterface {
         this.repository = repository;
     }
 
-    public static long getLastNumber() {
+    public long getLastNumber() {
         return lastNumber;
     }
 
-    public static void setLastNumber(long lastNumber) {
-        InvoiceServicePrefix.lastNumber = lastNumber;
+    public void setLastNumber(long lastNumber) {
+        lastNumber = lastNumber;
     }
 
     public String getPrefix() {

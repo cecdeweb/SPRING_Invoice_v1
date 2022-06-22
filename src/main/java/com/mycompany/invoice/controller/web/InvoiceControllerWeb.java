@@ -1,10 +1,15 @@
-package com.mycompany.invoice.controller;
+package com.mycompany.invoice.controller.web;
 
+import com.mycompany.invoice.controller.InvoiceControllerInterface;
 import com.mycompany.invoice.entity.Invoice;
 import com.mycompany.invoice.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class InvoiceControllerWeb implements InvoiceControllerInterface {
 
+    @Autowired
     private InvoiceServiceInterface service;
 
     public void createInvoice() {

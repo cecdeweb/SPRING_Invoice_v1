@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--  Autowiring byName et byType  -->
-    <!--
-        Quand tu utilises autowire byName
-        Spring passe par tes classes, regarde tes attributs et regarde si j'ai pas une référence à un objet du même nom
-        Dans InvoiceServicePrefix, spring va détecter l'attribut repository, et voir que j'ai un id repository qui fait
-        référence à l'instance de l'objet
-        InvoiceRepositoryMemory, il va injecter la dépendance dans l'attribut repository directement
-    -->
-    <bean id="service" class="com.mycompany.invoice.service.InvoiceServicePrefix">
-        <property name="lastNumber" value="112" />
-        <property name="prefix" value="NUM_" />
-        <property name="file" value="C\\temp\\monfichier.csv" />
 
-<!--        <property name="repository" ref="repository" />-->
-    </bean>
+    <!-- A partir de maintenant je vais utiliser les annotation spring pour l'autowiring -->
+    <!--    <context:annotation-config/>-->
+    <!--    <context:property-placeholder location="classpath:application.properties"/>-->
 
-    <bean class="com.mycompany.invoice.controller.InvoiceControllerWeb">
-<!--        <property name="service" ref="service" />-->
-    </bean>
+    <!--  Pas injecter directement le dossier com.company.invoice/ ...  -->
+    <!--  <context:component-scan base-package="com.mycompany.invoice/"/>  -->
 
-    <bean id="repository" class="com.mycompany.invoice.repository.InvoiceRepositoryMemory"/>
-    
+    <!--  Va instancier ces classes ... le scan de l'app démarre  -->
+    <!--    <context:component-scan base-package="com.mycompany.invoice.controller.web"/>-->
+    <!--    <context:component-scan base-package="com.mycompany.invoice.service.prefix"/>-->
+    <!--    <context:component-scan base-package="com.mycompany.invoice.repository.memory"/>-->
+
+<!--    <bean id="service" class="com.mycompany.invoice.service.prefix.InvoiceServicePrefix"/>-->
+<!--    <bean class="com.mycompany.invoice.controller.web.InvoiceControllerWeb"/>-->
+<!--    <bean id="repository" class="com.mycompany.invoice.repository.memory.InvoiceRepositoryMemory"/>-->
 
 </beans>
