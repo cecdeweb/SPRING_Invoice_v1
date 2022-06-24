@@ -5,6 +5,8 @@ import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoice.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 //@Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
 
@@ -27,4 +29,10 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
     public void setRepository(InvoiceRepositoryInterface repository) {
         this.repository = repository;
     }
+
+    @Override
+    public List<Invoice> getInvoiceList() {
+        throw new UnsupportedOperationException();
+    }
+
 }

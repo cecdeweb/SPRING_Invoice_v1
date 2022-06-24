@@ -20,7 +20,7 @@ public class InvoiceControllerKeyBoard implements InvoiceControllerInterface {
         System.out.println("Customer name :");
         String customerName = scanner.nextLine();
 
-        // génerer une facture
+        // générer une facture
         Invoice newInvoice = new Invoice();
         newInvoice.setCustomerInvoice(customerName);
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invoice Home</title>
+    </head>
+    <body>
+
+    <h1>Bienvenue dans notre application de facturation</h1>
+
+    <h2>Voici les action réalisables :</h2>
+    <ul>
+        <li>
+            <a href="#">Ajouter une facture</a>
+        </li>
+    </ul>
+
+    <h3>Votre liste de facture</h3>
+    <table>
+        <tr th:each="invoice : ${invoices}">
+            <td th:text="${invoice.number}"></td>
+            <td th:text="${invoice.customerInvoice}"></td>
+        </tr>
+    </table>
+
+<!--    <p th:text="${#locale.country}">US</p>-->
+
+    </body>
+</html>

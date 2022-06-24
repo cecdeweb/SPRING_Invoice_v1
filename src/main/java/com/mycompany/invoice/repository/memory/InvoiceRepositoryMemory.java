@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//@Repository
 public class InvoiceRepositoryMemory implements InvoiceRepositoryInterface {
 
     public static List<Invoice> invoices = new ArrayList<>();
@@ -17,5 +17,15 @@ public class InvoiceRepositoryMemory implements InvoiceRepositoryInterface {
         invoices.add(invoice);
         System.out.println("Invoice added with number " + invoice.getNumber() + " for customer : " + invoice.getCustomerInvoice());
     }
+
+    @Override
+    public List<Invoice> List() {
+        return null;
+    }
+
+//    @Override
+//    public List<Invoice> getInvoiceList() {
+//        return repository.List();
+//    }
 
 }

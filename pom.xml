@@ -26,30 +26,19 @@
 
   <dependencies>
 
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework</groupId>-->
-<!--      <artifactId>spring-context</artifactId>-->
-<!--      <version>5.3.20</version>-->
-<!--    </dependency>-->
-
-<!--    Autoconfigure déjà dans le starter de Spring-Boot
-        <dependency> -->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-autoconfigure</artifactId>-->
-<!--&lt;!&ndash;      <version>2.7.0</version>&ndash;&gt;-->
-<!--    </dependency>-->
-
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
 <!--      <version>2.7.0</version>-->
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
 <!--    pas necessaire pour l'exemple d'app actuelle > pas de tests unitaires prevus -->
     <dependency>
